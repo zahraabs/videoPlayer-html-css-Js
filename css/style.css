@@ -1,0 +1,109 @@
+html,
+body {
+	width: 100%;
+	
+}
+.myplayer {
+	width: 70%;
+	height: 500px;
+	margin: 0 auto;
+	position: relative;
+	display: flex;
+	direction: ltr;
+	overflow: hidden;
+	transition: 0.2s all;
+}
+#myVideo{
+	width: 100%;
+	object-fit: contain;
+	overflow-clip-margin: content-box;
+	overflow: clip;
+}
+
+#videoHolder {
+	position: relative;
+	padding-top: 25px;
+	height: 0;
+	text-align: center;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.myplayer .myplayer__controls{
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	background-color: #444;
+} 
+
+.myplayer .controls__progressbar{
+	height: 6px;
+	background: #e1e1e1;
+	width: 100%;
+}
+
+.myplayer .controls__progressbar-current{
+	-webkit-appearance: none;
+	height: 6px;
+	margin: 0;
+	position: absolute;
+	width: 100%;
+	background: linear-gradient(90deg , rgba(230,126,34,1) 0%, #e1e1e1 0%);
+}
+
+.myplayer .controls__btn{
+	margin: 10px 15px;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.controls__btn .left ,.controls__btn .right{
+	display: flex;
+	align-items: center;
+}
+
+.myplayer .controls__btn .left .btns:nth-child(2){
+	margin: 0 20px;
+}
+.myplayer .controls__btn .right .btns:not(:last-child){
+	margin-right: 20px;
+}
+.myplayer .btns.volume{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.myplayer .controls__btn .btns{
+	font-size: 1.3em;
+	cursor: pointer;
+}
+
+.myplayer .volume__progress{
+	transform: rotate(-90deg);
+	position: absolute;
+	right: 0;
+	top: -40px;
+	display: none;
+}
+
+.myplayer .volume__progress input[type=range]{
+	display: flex;
+	-webkit-appearance: none;
+	border-radius: 6px;
+	height: 6px;
+	width: 77px;
+	background: linear-gradient(90deg , rgba(230,126,34,1) 50%, #e1e1e1 50%);
+}
+
+@media only screen and (max-width: 600px) {
+	#videoHolder {
+		width: calc(100% - 20px);
+		margin: 0 10px;
+	}
+
+}

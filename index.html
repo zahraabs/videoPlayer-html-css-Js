@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="myplayer">
+        <div id="videoHolder">
+            <video id="myVideo" poster="https://fredrickjaxx.is/_assets/video/blossoms.jpg">
+                <source id="mp4" src="https://fredrickjaxx.is/_assets/video/blossoms.mp4" type="video/mp4">
+                <source id="webm" src="https://fredrickjaxx.is/_assets/video/blossoms.Webm" type="video/webm">
+            </video>
+        </div>
+        <div class="myplayer__controls">
+            <div class="controls__progressbar">
+                <input class="controls__progressbar-current" type="range" min="1" max="100" step="1" value="0"></input>
+            </div>
+            <div class="controls__btn">
+                <div class="left">
+                    <div class="btns play">
+                        <i class="ion-play"></i>
+                    </div>
+                    <div class="btns rewind">
+                        <i class="ion-ios-rewind"></i>
+                    </div>    
+                      <div class="btns forward">
+                        <i class="ion-ios-fastforward"></i>
+                    </div>
+                    <div class="timer"></div>
+                </div>
+                <div class="right">
+                   <div class="btns volume">
+                    <i class="ion-volume-high"></i>
+                   </div>
+                   <div class="volume__progress">
+                    <input id="volume_bar" type="range" min="1" max="100" step="1" value="50">
+                   </div>
+                   <div class="btns fullscreen">
+                    <i class="ion-qr-scanner"></i>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/app.js"></script>
+</body>
+</html>
