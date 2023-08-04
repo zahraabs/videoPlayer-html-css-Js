@@ -10,9 +10,7 @@
 <body>
     <div class="myplayer">
         <div id="videoHolder">
-            <video id="myVideo" poster="https://fredrickjaxx.is/_assets/video/blossoms.jpg">
-                <source id="mp4" src="https://fredrickjaxx.is/_assets/video/blossoms.mp4" type="video/mp4">
-                <source id="webm" src="https://fredrickjaxx.is/_assets/video/blossoms.Webm" type="video/webm">
+            <video id="myVideo" src="https://fredrickjaxx.is/_assets/video/blossoms.mp4" type="video/mp4">
             </video>
         </div>
         <div class="myplayer__controls">
@@ -30,7 +28,11 @@
                       <div class="btns forward">
                         <i class="ion-ios-fastforward"></i>
                     </div>
-                    <div class="timer"></div>
+                    <div class="timer">
+                        <span class="currentTime">00:00</span>
+                        <span>/</span>
+                        <span class="videoTime">00:00</span>
+                    </div>
                 </div>
                 <div class="right">
                    <div class="btns volume">
