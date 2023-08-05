@@ -7,10 +7,18 @@ let rewind = controls.querySelector(".rewind");
 let forward = controls.querySelector(".forward");
 let currentTime = controls.querySelector(".currentTime");
 let videoTime = controls.querySelector(".videoTime");
+let timeBar = controls.querySelector(".controls__progressbar-current");
+let volume = controls.querySelector(".volume .ion-volume-high");
+let volumeProgressBar = controls.querySelector(".volume .volume__progress");
+
+let volumeProgressBarInput = volumeProgressBar.querySelector("input");
 
 play.addEventListener("click", playOrPause);
 rewind.addEventListener("click", back5Sec);
 forward.addEventListener("click", go5Sec);
+timeBar.addEventListener("input", changeTime);
+volume.addEventListener("click", showVolumeIcon);
+volumeProgressBarInput.addEventListener("input", changeVolume);
 
 video.addEventListener("timeupdate", updateVideoDetails);
 
@@ -41,6 +49,23 @@ function go5Sec() {
 
 function updateVideoDetails() {
     currentTime.textContent = getTime(video.currentTime)
+
+        let length = (video.currentTime / video.duration) * 100;
+        timeBar.style.background = ` linear-gradient(90deg , rgba(230,126,34,1) ${length}%, #e1e1e1 0%)`;
+        timeBar.value = length;
+}
+
+function changeTime() {
+    video.currentTime = (this.value / 100) * video.duration;
+}
+
+function showVolumeIcon() {
+    volumeProgressBar.classList.toggle("active")
+}
+
+function changeVolume() {
+    video.volume = this.value / 100;
+    this.style.background = `linear-gradient(90deg, rgba(230, 126, 34, 1) ${this.value}%, #e1e1e1 50%)`
 }
 
 function getTime(time) {
