@@ -10,6 +10,7 @@ let videoTime = controls.querySelector(".videoTime");
 let timeBar = controls.querySelector(".controls__progressbar-current");
 let volume = controls.querySelector(".volume .ion-volume-high");
 let volumeProgressBar = controls.querySelector(".volume .volume__progress");
+let fullScreen = controls.querySelector(".fullscreen .ion-qr-scanner");
 
 let volumeProgressBarInput = volumeProgressBar.querySelector("input");
 
@@ -19,6 +20,7 @@ forward.addEventListener("click", go5Sec);
 timeBar.addEventListener("input", changeTime);
 volume.addEventListener("click", showVolumeIcon);
 volumeProgressBarInput.addEventListener("input", changeVolume);
+fullScreen.addEventListener("click", toggleFullScreen);
 
 video.addEventListener("timeupdate", updateVideoDetails);
 
@@ -66,6 +68,18 @@ function showVolumeIcon() {
 function changeVolume() {
     video.volume = this.value / 100;
     this.style.background = `linear-gradient(90deg, rgba(230, 126, 34, 1) ${this.value}%, #e1e1e1 50%)`
+}
+
+function toggleFullScreen() {
+ if (video.requestFullscreen) {
+     video.requestFullscreen();
+ } else if (video.mozRequestFullScreen) { 
+    video.mozRequestFullScreen();
+  } else if (video.webkitRequestFullscreen) { 
+    video.webkitRequestFullscreen();
+  } else if (video.msRequestFullscreen) { 
+    video.msRequestFullscreen();
+  }
 }
 
 function getTime(time) {
